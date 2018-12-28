@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Interstellar Transport System</title>
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(edges)}">
+        <h2>Routes</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Planet Origin</th>
+                <th>Planet Destination</th>
+                <th>Distance(Light Years)</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="edge : ${edges}">
+                <td th:text="${edge.id}">Id</td>
+                <td th:text="${edge.source.id}">Planet Origin</td>
+                <td th:text="${edge.destination.id}">Planet Destination</td>
+                <td th:text="${edge.distance}">Distance(Light Years)</td>
+                <td><a th:href="${'/edge/' + edge.id}">View</a></td>
+                <td><a th:href="${'/edge/edit/' + edge.id}">Edit</a></td>
+                <td><a th:href="${'/edge/delete/' + edge.id}">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

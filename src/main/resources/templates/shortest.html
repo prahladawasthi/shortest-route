@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<title>Interstellar Transport System</title>
+</head>
+<body>
+	<div class="container">
+		<div>
+			<h3>Find the shortest path from the source to a destination</h3>
+			<form class="form-horizontal" th:action="@{/shortest}"
+				th:object="${shortest}" method="post">
+				<input type="hidden" th:field="*{vertexId}" />
+				<p>
+					Source: <input type="text" th:field="*{vertexName}"
+						class="form-control" />
+				</p>
+				<label for="paths">Destination:</label> <br /> <select id="paths"
+					th:field="*{selectedVertex}" class="form-control input-lg">
+					<option th:each="v : ${pathList}" th:value="${v.id}"
+						th:text="${v.name}+' ('+${v.id}+')'"></option>
+				</select> <br />
+				<div class="checkbox">
+					<label> <input type="checkbox" th:field="*{trafficAllowed}" />Overlay
+						Traffic
+					</label>
+				</div>
+				<br />
+				<div class="checkbox">
+					<label> <input type="checkbox"
+						th:field="*{undirectedGraph}" />Undirected Routes
+					</label>
+				</div>
+				<br />
+				<div class="form-horizontal">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

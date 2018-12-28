@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>
+    </title>
+
+    <th:block th:include="headers/headerinc :: head"></th:block>
+</head>
+<body>
+<div class="container">
+    <th:block th:include="headers/header :: header"></th:block>
+    <div class="row text-center">
+        <img src="../static/images/interstellar.png"
+             th:src="@{/images/interstellar.png}" class="img-rounded"/>
+    </div>
+    <div class="row text-center">
+        <p class="lead">The above graph represents an interstellar transport system used by Earth’s inhabitants in the
+            year 2145. They require you to build a system that will allow them to find the shortest path from point “A”,
+            being Earth, through the galaxy to any of the planets represented by the other nodes. You are provided with
+            a list of node names and their respective distances between their linked planets.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

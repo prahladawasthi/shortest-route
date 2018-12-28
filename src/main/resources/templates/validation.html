@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<title>Interstellar Transport System</title>
+
+</head>
+<body>
+	<div class="container">
+
+		<div class="well well-sm">Validation Message</div>
+		<p th:if="${timestamp}" id='created'>
+			<b>Occurred:</b> <span th:text="${timestamp}">Timestamp</span>
+		</p>
+		<p th:if="${status}">
+			<b>Response Status:</b> <span th:text="${status}">status-code</span>
+		</p>
+		<p class="bg-danger lead" th:text="${validationMessage}" />
+		<p th:if="${errorMessage}">
+			<b>Alternatively use right click to view page source for more
+				information:</b>
+		</p>
+		<div th:utext="'&lt;!--'" th:remove="tag"></div>
+		<div th:utext="'Failed URL: ' +  ${url}" th:remove="tag">${url}</div>
+		<div th:utext="'Error: ' + ${errorCode}" th:remove="tag">${errorCode}</div>
+		<div th:utext="'Message: ' + ${errorMessage}" th:remove="tag">${errorMessage}</div>
+		<div th:utext="'Trace: ' + ${errorTrace}" th:remove="tag">${errorTrace}</div>
+		<div th:utext="'--&gt;'" th:remove="tag"></div>
+	</div>
+
+</body>
+</html>
