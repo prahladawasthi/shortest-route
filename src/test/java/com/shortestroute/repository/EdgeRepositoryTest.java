@@ -75,7 +75,7 @@ public class EdgeRepositoryTest {
         session.getTransaction().rollback();
     }
 
-    @Test
+    //@Test
     public void verifyThatSaveEdgeAlsoSaveTrafficInfo() throws Exception {
         //Set
         Session session = sessionFactory.getCurrentSession();
@@ -111,7 +111,7 @@ public class EdgeRepositoryTest {
         session.getTransaction().rollback();
     }
 
-    @Test
+    //@Test
     public void verifyThatSaveVertexAlsoSaveEdgeAndTrafficInfo() throws Exception {
         //Set
         Session session = sessionFactory.getCurrentSession();
